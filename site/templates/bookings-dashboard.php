@@ -1,9 +1,8 @@
 <?php 
-	use Dplus\Base\Validator;
-	$validator = new Validator(); 
 	$date = date('Ymd');
 	$year = date('Y', strtotime($date));
 	$month = date('n', strtotime($date));
+	$bgcolors = array_rand(array_flip($config->allowedcolors), $month);
 ?>
 
 <?php include('./_head.php'); // include header markup ?>
@@ -39,35 +38,30 @@
 						<?php endforeach; ?>
 					</tbody>
 				</table>
-				<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+				<div class="card-body">
+					<h2><?= $year; ?> Monthly Bookings</h2>
+				</div>
+				<div id="bookings-by-month-carousel" class="carousel slide" data-ride="carousel">
 				  <div class="carousel-inner">
 					<?php for ($i = 1; $i < $month; $i++) : ?>
-						<?php 
-							$mm = $i < 10 ? "0$i" : $i; 
-							$day = "01";
-							$yyyymmdd = $year.$mm.$day;
-							$bgcolors = array_rand(array_flip($config->allowedcolors), $month);
-						?>
-						
-						<div class="carousel-item <?= $i == 1 ? 'active' : ''; ?>" style="background: <?= $bgcolors[$i]; ?>; height: 400px;">
-							<div class="carousel-caption d-none d-md-block">
-						      <h5><?= date('M', strtotime($yyyymmdd)); ?></h5>
-						      <p><?= "$ ".$page->stringerbell->format_money(get_booking_month($yyyymmdd)); ?></p>
+						<div class="carousel-item <?= $i == 1 ? 'active' : ''; ?>" style="height: 200px;">
+							<div class="row">
+								<?php for ($f = 0; $f < 3; $f++) : ?>
+									<?php 
+										$mm = $i < 10 ? "0$i" : $i; 
+										$day = "01";
+										$yyyymmdd = $year.$mm.$day;
+									 ?>
+									 <div class="col text-white text-center" style="background: <?= $bgcolors[$i]; ?>">
+									  <h2><?= date('M', strtotime($yyyymmdd)); ?></h2>
+									  <h3><?= "$ ".$page->stringerbell->format_money(get_booking_month($yyyymmdd)); ?></h3>
+									</div>
+									<?php $i++; ?>
+								<?php endfor; ?>
 							</div>
 						</div>
 					<?php endfor; ?>
 				  </div>
-				</div>
-				<div class="card-body">
-					<div class="row">
-						<?php for ($i = 1; $i < $month; $i++) : ?>
-							<?php $mm = $i < 10 ? "0$i" : $i; ?>
-							<?php $day = "01"; ?>
-							<?php $yyyymmdd = $year.$mm.$day; ?>
-							
-							<div class="col"><?= date('M', strtotime($yyyymmdd)) . ": " . $page->stringerbell->format_money(get_booking_month($yyyymmdd)); ?></div>
-						<?php endfor; ?>
-					</div>
 				</div>
 			</div>
 		</div>
