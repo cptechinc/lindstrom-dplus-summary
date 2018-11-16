@@ -1,0 +1,42 @@
+{
+    "name": "cptechinc/lindstrom-dplus-dashboards",
+    "type": "library",
+    "description": "Dplus Dashboards",
+    "keywords": [ "dpluso", "dplus-dashboard" ],
+    "license": "MPL-2.0",
+    "homepage": "https://processwire.com",
+    "minimum-stability": "dev",
+    "repositories": [{
+        "type": "git",
+        "url": "https://github.com/cptechinc/purl.git"
+    }],
+    "authors": [
+        {
+            "name": "Paul Gomez",
+            "email": "paul@cptechinc.com",
+            "homepage": "https://www.cptechinc.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Barbara Bullemer",
+            "email": "barbara@cptechinc.com",
+            "homepage": "https://www.cptechinc.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "ext-gd": "*",
+        "jwage/purl": "dev-cptechinc",
+        "atk4/dsql": "1.1",
+        "mikehaertl/phpwkhtmltopdf": "^2.3",
+        "cptechinc/dplus-base": "dev-master",
+        "cptechinc/dplus-processwire": "dev-master"
+    },
+    "autoload": {
+        "files": [ 
+            "wire/core/ProcessWire.php",
+            "vendor/cptechinc/dplus-base/vendor/autoload.php"
+        ]
+    }
+}
