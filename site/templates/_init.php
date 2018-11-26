@@ -22,13 +22,16 @@ include_once("./_init.js.php");
 $config->styles->append(hash_templatefile('styles/bootstrap.min.css'));
 $config->styles->append('//fonts.googleapis.com/css?family=Lusitana:400,700|Quattrocento:400,700');
 $config->styles->append('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-$config->styles->append('//www.fuelcdn.com/fuelux/3.13.0/css/fuelux.min.css');
+$config->styles->append('//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css');
+$config->styles->append(hash_templatefile('styles/libs/fuelux.css'));
 $config->styles->append(hash_templatefile('styles/main.css'));
 
 $config->scripts->append('https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js');
 $config->scripts->append(hash_templatefile('scripts/popper.js'));
 $config->scripts->append(hash_templatefile('scripts/bootstrap.min.js'));
-$config->scripts->append('//www.fuelcdn.com/fuelux/3.13.0/js/fuelux.min.js');
+$config->scripts->append('//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js');
+$config->scripts->append('//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js');
+$config->scripts->append(hash_templatefile('scripts/fuelux.js'));
 $config->scripts->append(hash_templatefile('scripts/uri.js'));
 $config->scripts->append(hash_templatefile('scripts/main.js'));
 

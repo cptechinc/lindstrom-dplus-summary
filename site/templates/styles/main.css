@@ -26,6 +26,10 @@ footer {
 	margin-top: 32px;
 }
 
+.bg-lindstrom {
+	background: #00783e;
+}
+
 /**************************************
  	Login Styles
  **************************************/
@@ -69,9 +73,15 @@ footer {
 		color: #fff;
 	}
 
-	.fuelux .datepicker-calendar-days td.current-day span {
-		background: #007bff;
+	.fuelux .datepicker-calendar-days td.current-day.selected span {
+		background: #00783e;
 	}
 	.fuelux .datepicker-calendar-days td.current-day button {
 		color: #fff;
 	}
+	
+	.fuelux .datepicker-calendar .datepicker-calendar-header .next .prev {
+		color: #fff;
+	}
+	
+	
