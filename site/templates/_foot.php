@@ -1,6 +1,6 @@
 		<footer class="bg-lindstrom">
 			<div class='container'>
-				<strong class="text-white">Session ID: <?php echo session_id(); ?></strong>
+				<strong class="text-white">Session ID: <?= session_id(); ?></strong>
 			</div>
 			<!-- /.container -->
 		</footer>

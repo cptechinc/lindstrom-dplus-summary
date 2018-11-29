@@ -26,7 +26,7 @@ $config->styles->append('//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris
 $config->styles->append(hash_templatefile('styles/libs/fuelux.css'));
 $config->styles->append(hash_templatefile('styles/main.css'));
 
-$config->scripts->append('https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js');
+//$config->scripts->append('https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js');
 $config->scripts->append(hash_templatefile('scripts/popper.js'));
 $config->scripts->append(hash_templatefile('scripts/bootstrap.min.js'));
 $config->scripts->append('//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js');

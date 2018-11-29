@@ -13,6 +13,9 @@
 			<link rel="stylesheet" type="text/css" href="<?= $css; ?>" />
 		<?php endforeach; ?>
 		<?php //include ('_config.js.php'); ?>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="<?= hash_templatefile('scripts/moment.js'); ?>"></script>
+		<script>moment().format();</script>
 	</head>
 
 	<body class="fuelux">

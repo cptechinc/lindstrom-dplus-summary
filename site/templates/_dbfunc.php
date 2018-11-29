@@ -14,7 +14,7 @@
 			return $q->generate_sqlquery();
 		} else {
 			$sql->execute($q->params);
-			return $sql->fetchAll(PDO::FETCH_ASSOC);
+			return $sql->fetchAll(PDO::FETCH_COLUMN);
 		}
 	}
 	

@@ -50,11 +50,11 @@
 				<?php $salesgroups = get_bookingsalesgroups(); ?>
 				<?php foreach ($salesgroups as $salesgroup) : ?>
 					<tr>
-						<th scope="row"><?= $config->booking_groups[$salesgroup['salesgroup']]; ?></th>
-						<td class="text-right"><?= $page->stringerbell->format_money(get_bookingsalesgroup_day($salesgroup['salesgroup'], $date)); ?></td>
-						<td class="text-right"><?= $page->stringerbell->format_money(get_bookingsalesgroup_week($salesgroup['salesgroup'], $date)); ?></td>
-						<td class="text-right"><?= $page->stringerbell->format_money(get_bookingsalesgroup_month($salesgroup['salesgroup'], $date)); ?></td>
-						<td class="text-right"><?= $page->stringerbell->format_money(get_bookingsalesgroup_year($salesgroup['salesgroup'], $date)); ?></td>
+						<th scope="row"><?= $config->booking_groups[$salesgroup]; ?></th>
+						<td class="text-right"><?= $page->stringerbell->format_money(get_bookingsalesgroup_day($salesgroup, $date)); ?></td>
+						<td class="text-right"><?= $page->stringerbell->format_money(get_bookingsalesgroup_week($salesgroup, $date)); ?></td>
+						<td class="text-right"><?= $page->stringerbell->format_money(get_bookingsalesgroup_month($salesgroup, $date)); ?></td>
+						<td class="text-right"><?= $page->stringerbell->format_money(get_bookingsalesgroup_year($salesgroup, $date)); ?></td>
 					</tr>
 				<?php endforeach; ?>
 				<tr class="bg-dark text-white">
@@ -100,38 +100,26 @@
 		</div>
 		<?php if ($user->isLoggedin()) : ?>
 			<div>
-				<h3>Today</h3>
-				<div id="sales-group-today"></div>
-				
-				<script>
-					$(function() {
-						<?php 
-							$salesgroups = get_bookingsalesgroups();
-							$data = array();
-							foreach ($salesgroups as $salesgroup) {
-								$data[$salesgroup['salesgroup']]['today'] = get_bookingsalesgroup_day($salesgroup['salesgroup'], $date);
-								$data[$salesgroup['salesgroup']]['week'] = get_bookingsalesgroup_week($salesgroup['salesgroup'], $date);
-								$data[$salesgroup['salesgroup']]['month'] = get_bookingsalesgroup_month($salesgroup['salesgroup'], $date);
-								$data[$salesgroup['salesgroup']]['year'] = get_bookingsalesgroup_year($salesgroup['salesgroup'], $date);
-							}
-						?>
-						Morris.Bar({
-		element: 'bar-example',
-		data: [
-		{ y: '2006', a: 100, b: 90 },
-		{ y: '2007', a: 75,  b: 65 },
-		{ y: '2008', a: 50,  b: 40 },
-		{ y: '2009', a: 75,  b: 65 },
-		{ y: '2010', a: 50,  b: 40 },
-		{ y: '2011', a: 75,  b: 65 },
-		{ y: '2012', a: 100, b: 90 }
-		],
-		xkey: 'y',
-		ykeys: ['a', 'b'],
-		labels: ['Series A', 'Series B']
-		});
-	});
-				</script>
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" id="day-tab-link" data-toggle="tab" href="#day-tab" role="tab" aria-controls="home" aria-selected="true">
+							Day
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="year-tab-link" data-toggle="tab" href="#year-tab" role="tab" aria-controls="profile" aria-selected="false">
+							Year
+						</a>
+					</li>
+				</ul>
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="day-tab" role="tabpanel" aria-labelledby="day-tab-link">
+						<?php include "{$config->paths->content}bookings/charts/bar/day.php";  ?>
+					</div>
+					<div class="tab-pane fade" id="year-tab" role="tabpanel" aria-labelledby="year-tab-link">
+						<?php include "{$config->paths->content}bookings/charts/line/year-trend.php"; ?>
+					</div>
+				</div>
 			</div>
 		<?php endif; ?>
 		
