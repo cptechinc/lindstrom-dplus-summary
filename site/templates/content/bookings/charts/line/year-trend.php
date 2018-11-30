@@ -29,13 +29,15 @@
 		function draw_yeargraph() {
 			<?php 
 				$data = array();
+				
 				for ($i = 1; $i < $month; $i++) {
 					$mm = $i < 10 ? "0$i" : $i;
 					$day = "01";
 					$yyyymmdd = $year.$mm.$day;
 					$monthdata = array(
 						'month' => DplusDateTime::format_date($yyyymmdd, 'Y-m-d'),
-						'sales' => floatval(get_bookingtotal_month($yyyymmdd))
+						'total' => get_bookingtotal_month($yyyymmdd),
+						'line2' => 100000 * $i
 					);
 					$data[] = $monthdata;
 				}
@@ -48,8 +50,8 @@
 					var ds = new Date(d);
 					return moment(ds).format('MMMM YYYY');
 				},
-				ykeys: ['sales'],
-				labels: ['Amount Booked'],
+				ykeys: ['total', 'line2'],
+				labels: ['Total Booked', 'Line 2'],
 				xLabelFormat: function (x) { return  moment(x).format('MMM YYYY'); },
 			});
 		}
