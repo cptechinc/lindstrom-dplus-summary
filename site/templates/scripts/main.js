@@ -61,6 +61,13 @@ $(function() {
 });
 
 $.fn.extend({
+	hasParent(selector) {
+		// Returns a subset of items using jQuery.filter
+		return this.filter(function(){
+			// Return truthy/falsey based on presence in parent
+			return $(this).closest( selector ).length;
+		});
+	},
 	loadin: function(href, callback) {
 		var element = $(this);
 		var parent = element.parent();
