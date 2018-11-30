@@ -99,7 +99,7 @@
 			</div>
 		</div>
 		<?php if ($user->isLoggedin()) : ?>
-			<div>
+			<div class="mt-4">
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 					<li class="nav-item">
 						<a class="nav-link active" id="day-tab-link" data-toggle="tab" href="#day-tab" role="tab" aria-controls="home" aria-selected="true">
@@ -112,7 +112,7 @@
 						</a>
 					</li>
 				</ul>
-				<div class="tab-content" id="myTabContent">
+				<div class="tab-content">
 					<div class="tab-pane fade show active" id="day-tab" role="tabpanel" aria-labelledby="day-tab-link">
 						<?php include "{$config->paths->content}bookings/charts/bar/day.php";  ?>
 					</div>
