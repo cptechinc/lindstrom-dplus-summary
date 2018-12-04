@@ -19,31 +19,6 @@ $(function() {
 			window.location.href = href;
 		}
 	});
-
-	$("body").on("click", ".cart-item-search", function(e) {
-		e.preventDefault();
-		var button = $(this);
-		var modal = config.modals.ajax;
-		var loadinto = modal+" .modal-content";
-		var href = URI(button.attr('href')).addQuery('modal', 'modal').normalizeQuery().toString();
-
-		$(loadinto).loadin(href, function() {
-			$(modal).modal('show');
-			setTimeout(function (){ $(modal).find('.query').focus();}, 500);
-		});
-	});
-
-	$("body").on("submit", "#item-search", function(e) {
-		e.preventDefault();
-		var form = $(this);
-		var modal = config.modals.ajax;
-		var loadinto = modal+" .modal-content";
-		var href = URI(form.attr('action')).query(form.serialize()).addQuery('modal', 'modal').normalizeQuery().toString();
-
-		$(loadinto).loadin(href, function() {
-			$(modal).modal('show');
-		});
-	});
 	
 	$("body").on("click", ".load-link", function(e) {
 		e.preventDefault();

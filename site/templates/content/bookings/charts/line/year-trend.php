@@ -15,10 +15,10 @@
 
 	$colors = array_rand(array_flip($config->allowedcolors), sizeof($linedata['ykeys']));
 
-	for ($i = 1; $i < $month; $i++) {
+	for ($i = 1; $i < $bookingsdisplay->get_monthfromdate(); $i++) {
 		$mm = $i < 10 ? "0$i" : $i;
 		$day = "01";
-		$yyyymmdd = $year.$mm.$day;
+		$yyyymmdd = $bookingsdisplay->get_yearfromdate().$mm.$day;
 
 		$monthdata = array(
 			'month' => DplusDateTime::format_date($yyyymmdd, 'Y-m-d'),
