@@ -19,12 +19,14 @@
     <div class="card-body">
         <div class="d-flex justify-content-around">
             <?php for ($i = 1; $i < $bookingsdisplay->get_monthfromdate(); $i++) : ?>
-                <?php $mm = $i < 10 ? "0$i" : $i; ?>
-                <?php $day = "01"; ?>
-                <?php $yyyymmdd = $bookingsdisplay->get_yearfromdate().$mm.$day; ?>
+                <?php 
+                    $mm = $i < 10 ? "0$i" : $i; 
+                    $day = "01";
+                    $yyyymmdd = $bookingsdisplay->get_yearfromdate().$mm.$day;
+                ?>
                 <div>
                     <span class="font-weight-bold"><?= date('M', strtotime($yyyymmdd)); ?>:&ensp;</span>
-                    <span class="small"><?= $page->stringerbell->format_money(get_bookingtotal_month($yyyymmdd)); ?>&ensp;</span>
+                    <span class="small"><?= $page->stringerbell->format_money($bookingsdisplay->get_total_month($yyyymmdd)); ?>&ensp;</span>
                 </div>
             <?php endfor; ?>
         </div>

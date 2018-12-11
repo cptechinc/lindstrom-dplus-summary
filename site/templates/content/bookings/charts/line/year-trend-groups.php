@@ -22,11 +22,11 @@
 
 		$monthdata = array(
 			'month' => DplusDateTime::format_date($yyyymmdd, 'Y-m-d'),
-			'total' => floatval(get_bookingtotal_month($yyyymmdd))
+			'total' => floatval($bookingsdisplay->get_total_month($yyyymmdd))
 		);
 
 		foreach ($salesgroups as $salesgroup) {
-			$monthdata[$salesgroup] = floatval(get_bookingsalesgroup_month($salesgroup, $yyyymmdd));
+			$monthdata[$salesgroup] = floatval($bookingsdisplay->get_group_total_month($salesgroup, $yyyymmdd));
 		}
 
 		$linedata['data'][] = $monthdata;

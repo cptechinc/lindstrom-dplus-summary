@@ -1,7 +1,7 @@
 <?php
 	use Dplus\Base\DplusDateTime;
-
-	$salesgroups = get_bookingsalesgroups();
+	
+	$salesgroups = $bookingsdisplay->get_salesgroups();
 	$colors = array_rand(array_flip($config->allowedcolors), sizeof($salesgroups));
 
 	$bardata['data'] = array(
@@ -11,7 +11,7 @@
 
 	foreach ($salesgroups as $salesgroup) {
 		$bardata['labels'][$salesgroup] = $config->booking_groups[$salesgroup];
-		$bardata['data'][$salesgroup] = get_bookingsalesgroup_day($salesgroup, $date);
+		$bardata['data'][$salesgroup] = $bookingsdisplay->get_group_total_day($salesgroup, $date);
 
 		$piedata[] = array(
 			'label' => $config->booking_groups[$salesgroup],

@@ -4,7 +4,7 @@
 	
 	$date = $input->get->date ? date('Ymd', strtotime($input->get->text('date'))) : date('Ymd');
 	
-	$bookingsdisplay = new BookingsDayDisplay(session_id(), $page->fullURL, $date);
+	$bookingsdisplay = new BookingsSalesGroupsDisplay(session_id(), $page->fullURL, $date);
 	$bgcolors = array_rand(array_flip($config->allowedcolors), $bookingsdisplay->get_monthfromdate());
 ?>
 
