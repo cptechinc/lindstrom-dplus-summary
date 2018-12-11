@@ -24,7 +24,7 @@
 		<?php include "{$config->paths->content}bookings/bookings-by-salesgroup-table.php";  ?>
 		<?php include "{$config->paths->content}bookings/total-bookings-carousel.php";  ?>
 		
-		<?php if ($user->isLoggedin()) : ?>
+		<?php //if ($user->isLoggedin()) : ?>
 			<div class="mt-4">
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 					<li class="nav-item">
@@ -47,7 +47,6 @@
 					</div>
 				</div>
 			</div>
-		<?php endif; ?>
-		
+		<?php //endif; ?>
 	</div>
 <?php include('./_foot.php'); // include footer markup ?>
