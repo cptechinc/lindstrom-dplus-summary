@@ -6,6 +6,7 @@
     $salesgroup = $input->get->text('salesgroup');
 
 	$bookingsdisplay = new BookingsSalesRepsDisplay(session_id(), $page->fullURL, $date);
+    $bookingsdisplay->set_salesgroup($salesgroup);
 	$bgcolors = array_rand(array_flip($config->allowedcolors), $bookingsdisplay->get_monthfromdate());
 ?>
 <?php include('./_head-blank.php'); // include header markup ?>
@@ -19,6 +20,11 @@
 			<div class="col-sm-5">
 				<?php include "{$config->paths->content}bookings/date-form.php"; ?>
 			</div>
+            <div class="col-sm-7">
+                <a href="<?= $page->parent->url; ?>" class='btn btn-primary float-right'>
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Bookings
+                </a>
+            </div>
 		</div>
 
 		<?php include "{$config->paths->content}bookings/bookings-salesreps-table.php";  ?>

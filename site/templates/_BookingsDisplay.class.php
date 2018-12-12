@@ -185,8 +185,25 @@
 
 	class BookingsSalesRepsDisplay extends BookingsSalesGroupsDisplay {
 
-		public function get_salesreps($salesgroup, $debug = false) {
-			return get_bookingsalesreps($salesgroup, $debug);
+		protected $salesgroup;
+
+		public function set_salesgroup($salesgroup) {
+			$this->salesgroup = $salesgroup;
+		}
+
+		public function get_salesreps($debug = false) {
+			return get_bookingsalesreps($this->salesgroup, $debug);
+		}
+
+		/**
+		 * Return the URL for today's date
+		 * @return string URL
+		 */
+		public function get_grouptodayURL() {
+			$dateurl = new Purl($this->pageurl->getUrl());
+			$dateurl->query->set('salesgroup', $this->salesgroup);
+			$dateurl->query->set('date', date('m/d/Y'));
+			return $dateurl->getUrl();
 		}
 
 		/**
@@ -197,9 +214,9 @@
 		 * @param  bool   $debug       Run in debug? If so, return SQL Query
 		 * @return float               Booking total for the day
 		 */
-		public function get_salesrep_total_day($salesgroup, $salesrep, $date = '', $debug = false) {
+		public function get_salesrep_total_day($salesrep, $date = '', $debug = false) {
 			$date = !empty($date) ? $date : $this->date;
-			return get_bookingsalesrep_day($salesgroup, $salesrep, $date, $debug);
+			return get_bookingsalesrep_day($this->salesgroup, $salesrep, $date, $debug);
 		}
 
 		/**
@@ -210,9 +227,9 @@
 		 * @param  bool   $debug       Run in debug? If so, return SQL Query
 		 * @return float               Booking total for the week
 		 */
-		public function get_salesrep_total_week($salesgroup, $salesrep, $date = '', $debug = false) {
+		public function get_salesrep_total_week($salesrep, $date = '', $debug = false) {
 			$date = !empty($date) ? $date : $this->date;
-			return get_bookingsalesrep_week($salesgroup, $salesrep, $date, $debug);
+			return get_bookingsalesrep_week($this->salesgroup, $salesrep, $date, $debug);
 		}
 
 		/**
@@ -223,9 +240,9 @@
 		 * @param  bool   $debug       Run in debug? If so, return SQL Query
 		 * @return float               Booking total for the month
 		 */
-		public function get_salesrep_total_month($salesgroup, $salesrep, $date = '', $debug = false) {
+		public function get_salesrep_total_month($salesrep, $date = '', $debug = false) {
 			$date = !empty($date) ? $date : $this->date;
-			return get_bookingsalesrep_month($salesgroup, $salesrep, $date, $debug);
+			return get_bookingsalesrep_month($this->salesgroup, $salesrep, $date, $debug);
 		}
 
 		/**
@@ -236,8 +253,8 @@
 		 * @param  bool   $debug       Run in debug? If so, return SQL Query
 		 * @return float               Booking total for the year
 		 */
-		public function get_salesrep_total_year($salesgroup, $salesrep, $date = '', $debug = false) {
+		public function get_salesrep_total_year($salesrep, $date = '', $debug = false) {
 			$date = !empty($date) ? $date : $this->date;
-			return get_bookingsalesrep_year($salesgroup, $salesrep, $date, $debug);
+			return get_bookingsalesrep_year($this->salesgroup, $salesrep, $date, $debug);
 		}
 	}

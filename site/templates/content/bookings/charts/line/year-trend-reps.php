@@ -6,7 +6,7 @@
 		'labels' => array('Total Booked'),
 		'data' => array()
 	);
-	$salesreps = $bookingsdisplay->get_salesreps($salesgroup);
+	$salesreps = $bookingsdisplay->get_salesreps();
 
 	foreach ($salesreps as $salesrep) {
 		$linedata['ykeys'][] = $salesrep;
@@ -26,7 +26,7 @@
 		);
 
 		foreach ($salesreps as $salesrep) {
-			$monthdata[$salesrep] = floatval($bookingsdisplay->get_salesrep_total_month($salesgroup, $salesrep, $yyyymmdd));
+			$monthdata[$salesrep] = floatval($bookingsdisplay->get_salesrep_total_month($salesrep, $yyyymmdd));
 		}
 
 		$linedata['data'][] = $monthdata;

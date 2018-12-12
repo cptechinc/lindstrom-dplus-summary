@@ -9,14 +9,14 @@
         </tr>
     </thead>
     <tbody>
-        <?php $salesreps = $bookingsdisplay->get_salesreps($salesgroup); ?>
+        <?php $salesreps = $bookingsdisplay->get_salesreps(); ?>
         <?php foreach ($salesreps as $salesrep) : ?>
             <tr>
                 <th scope="row"><?= $salesrep; ?></th>
-                <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_salesrep_total_day($salesgroup, $salesrep)); ?></td>
-                <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_salesrep_total_week($salesgroup, $salesrep)); ?></td>
-                <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_salesrep_total_month($salesgroup, $salesrep)); ?></td>
-                <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_salesrep_total_year($salesgroup, $salesrep)); ?></td>
+                <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_salesrep_total_day($salesrep)); ?></td>
+                <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_salesrep_total_week($salesrep)); ?></td>
+                <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_salesrep_total_month($salesrep)); ?></td>
+                <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_salesrep_total_year($salesrep)); ?></td>
             </tr>
         <?php endforeach; ?>
         <tr class="bg-dark text-white">

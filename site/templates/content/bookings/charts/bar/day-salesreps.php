@@ -1,7 +1,7 @@
 <?php
 	use Dplus\Base\DplusDateTime;
 
-	$salesreps = $bookingsdisplay->get_salesreps($salesgroup);
+	$salesreps = $bookingsdisplay->get_salesreps();
 	$colors = array_rand(array_flip($config->allowedcolors), sizeof($salesreps));
 
 	$bardata['data'] = array(
@@ -11,7 +11,7 @@
 
 	foreach ($salesreps as $salesrep) {
 		$bardata['labels'][$salesrep] = $salesrep;
-		$bardata['data'][$salesrep] = $bookingsdisplay->get_salesrep_total_day($salesgroup, $salesrep, $date);
+		$bardata['data'][$salesrep] = $bookingsdisplay->get_salesrep_total_day($salesrep, $date);
 
 		$piedata[] = array(
 			'label' => $salesrep,

@@ -32,7 +32,7 @@
 			return $q->generate_sqlquery();
 		} else {
 			$sql->execute($q->params);
-			return $sql->fetchColumn();
+			return floatval($sql->fetchColumn());
 		}
 	}
 
@@ -52,7 +52,7 @@
 			return $q->generate_sqlquery();
 		} else {
 			$sql->execute($q->params);
-			return $sql->fetchColumn();
+			return floatval($sql->fetchColumn());
 		}
 	}
 
@@ -78,7 +78,7 @@
 			return $q->generate_sqlquery();
 		} else {
 			$sql->execute($q->params);
-			return $sql->fetchColumn();
+			return floatval($sql->fetchColumn());
 		}
 	}
 
@@ -98,7 +98,7 @@
 			return $q->generate_sqlquery();
 		} else {
 			$sql->execute($q->params);
-			return $sql->fetchColumn();
+			return floatval($sql->fetchColumn());
 		}
 	}
 
@@ -130,7 +130,7 @@
 			return $q->generate_sqlquery();
 		} else {
 			$sql->execute($q->params);
-			return $sql->fetchColumn();
+			return floatval($sql->fetchColumn());
 		}
 	}
 
@@ -149,7 +149,7 @@
 			return $q->generate_sqlquery();
 		} else {
 			$sql->execute($q->params);
-			return $sql->fetchColumn();
+			return floatval($sql->fetchColumn());
 		}
 	}
 
@@ -174,7 +174,7 @@
 			return $q->generate_sqlquery();
 		} else {
 			$sql->execute($q->params);
-			return $sql->fetchColumn();
+			return floatval($sql->fetchColumn());
 		}
 	}
 
@@ -193,7 +193,7 @@
 			return $q->generate_sqlquery();
 		} else {
 			$sql->execute($q->params);
-			return $sql->fetchColumn();
+			return floatval($sql->fetchColumn());
 		}
 	}
 
@@ -211,7 +211,7 @@
 			return $q->generate_sqlquery();
 		} else {
 			$sql->execute($q->params);
-			return $sql->fetchColumn();
+			return floatval($sql->fetchColumn());
 		}
 	}
 
@@ -230,7 +230,7 @@
 			return $q->generate_sqlquery();
 		} else {
 			$sql->execute($q->params);
-			return $sql->fetchColumn();
+			return floatval($sql->fetchColumn());
 		}
 	}
 
@@ -255,7 +255,7 @@
 			return $q->generate_sqlquery();
 		} else {
 			$sql->execute($q->params);
-			return $sql->fetchColumn();
+			return floatval($sql->fetchColumn());
 		}
 	}
 
@@ -274,6 +274,6 @@
 			return $q->generate_sqlquery();
 		} else {
 			$sql->execute($q->params);
-			return $sql->fetchColumn();
+			return floatval($sql->fetchColumn());
 		}
 	}

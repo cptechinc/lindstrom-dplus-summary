@@ -1,5 +1,8 @@
 <?php use Dplus\Base\DplusDateTime; ?>
 <form action="<?= $bookingsdisplay->get_dateformurl(); ?>" method="GET" class="mb-3 form-inline">
+    <?php if ($input->get->salesgroup) : ?>
+        <input type="hidden" name="salesgroup" value="<?= $input->get->text('salesgroup'); ?>">
+    <?php endif; ?>
     <div class="form-group">
         <div class="row">
             <div class="col-sm-2">
