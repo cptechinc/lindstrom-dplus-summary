@@ -39,10 +39,10 @@
 			</ul>
 			<div class="tab-content">
 				<div class="tab-pane fade show active" id="day-tab" role="tabpanel" aria-labelledby="day-tab-link">
-					<?php include "{$config->paths->content}bookings/charts/bar/day-groups.php";  ?>
+					<?php include "{$config->paths->content}bookings/charts/bar/day-salesreps.php";  ?>
 				</div>
 				<div class="tab-pane fade" id="year-tab" role="tabpanel" aria-labelledby="year-tab-link">
-					<?php include "{$config->paths->content}bookings/charts/line/year-trend-groups.php"; ?>
+					<?php include "{$config->paths->content}bookings/charts/line/year-trend-reps.php"; ?>
 				</div>
 			</div>
 		</div>
