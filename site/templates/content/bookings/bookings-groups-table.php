@@ -13,7 +13,7 @@
         <?php foreach ($salesgroups as $salesgroup) : ?>
             <tr>
                 <th scope="row">
-                    <a href="">
+                    <a href='<?= $page->url."salesreps/?salesgroup=$salesgroup"; ?>'>
                         <?= $config->booking_groups[$salesgroup]; ?>
                     </a>
                 </th>

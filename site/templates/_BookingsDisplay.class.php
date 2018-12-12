@@ -179,14 +179,14 @@
 		 */
 		public function get_group_total_year($salesgroup, $date = '', $debug = false) {
 			$date = !empty($date) ? $date : $this->date;
-			return get_bookingsalesgroup_month($salesgroup, $date, $debug);
+			return get_bookingsalesgroup_year($salesgroup, $date, $debug);
 		}
 	}
 
 	class BookingsSalesRepsDisplay extends BookingsSalesGroupsDisplay {
 
 		public function get_salesreps($salesgroup, $debug = false) {
-			return get_bookingsalesreps($debug);
+			return get_bookingsalesreps($salesgroup, $debug);
 		}
 
 		/**

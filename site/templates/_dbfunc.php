@@ -82,7 +82,7 @@
 		}
 	}
 
-	function get_bookingsalesrep_year($salesgroup, $date, $debug = false) {
+	function get_bookingsalesrep_year($salesgroup, $salesrep, $date, $debug = false) {
 		$validator = new Validator();
 		$date = $validator->date_yyyymmdd($date) ? $date : date('Ymd', strtotime($date));
 		$year = date('Y', strtotime($date));
