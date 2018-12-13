@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title><?= $page->title; ?></title>
 		<meta name="description" content="<?= $page->summary; ?>" />
+        <meta http-equiv="refresh" content="90">
 		<?php if (100 == 1) : ?>
 			<link rel="icon" href="<?= $site->company_favicon->url; ?>" type="image/x-icon">
 			<link rel="apple-touch-icon" href="<?= $site->company_favicon->url; ?>">

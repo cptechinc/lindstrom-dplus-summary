@@ -7,32 +7,27 @@
 
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav mr-auto">
-        		<?php $children = $pages->get('/')->children('template!=user-page|cart|build-items|site-admin'); ?>
+                <li>
+                    <a href="<?= $pages->get('template=bookings-menu')->url; ?>" class="nav-link">
+                        <span class="font-weight-bold"><?= $pages->get('template=bookings-menu')->title; ?></span>
+                    </a>
+                </li>
+        		<?php $children = $pages->get('template=bookings-menu')->children(); ?>
                 <?php foreach ($children as $child) : ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= $child->url; ?>"><?= $child->title; ?></a>
                     </li>
                 <?php endforeach; ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= $pages->get('template=orders')->url; ?>"><?= $pages->get('template=orders')->title; ?></a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Salesgroups</a>
+                    <div class="dropdown-menu">
+                        <?php $salesgroups = $bookingsdisplay->get_salesgroups(); ?>
+                        <?php foreach ($salesgroups as $salesgroup) : ?>
+                            <a class="dropdown-item" href="<?= $bookingsdisplay->generate_salesgroup_bookings_URL($salesgroup, $date); ?>"><?= $config->booking_groups[$salesgroup]; ?></a>
+                        <?php endforeach; ?>
+                    </div>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right hidden-sm">
-                <?php if ($user->loggedin) : ?>
-                    <li class="nav-item">
-                        <a href="<?= $homepage->url; ?>" class="nav-link">
-                            <i class="fa fa-user " aria-hidden="true"></i>&nbsp;User : <span class="font-weight-bold"><?= $user->fullname; ?></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <?php $count = count_cartdetails(session_id()); ?>
-                        <a href="<?= $pages->get('/cart/')->url; ?>" class="nav-link">&nbsp;<i class="fa fa-shopping-cart " aria-hidden="true"></i>&ensp;Your Cart&emsp;</a>
-                    </li>
-                    <li class="nav-item">
-                    	<a href="<?php echo $config->pages->account; ?>redir/?action=logout" class="btn btn-danger logout">Logout</a>
-                    </li>
-                <?php endif; ?>
-          	</ul>
         </div>
     </div>
 </nav>

@@ -9,7 +9,8 @@
 	$bgcolors = array_rand(array_flip($config->allowedcolors), $bookingsdisplay->get_monthfromdate());
 	$page->title = "Bookings for " . $config->booking_groups[$bookingsdisplay->salesgroup] . " ". DplusDateTime::format_date($date);
 ?>
-<?php include('./_head-blank.php'); // include header markup ?>
+
+<?php include('./_head.php'); // include header markup ?>
 	<div class="container page">
 		<div class="row mt-2 mb-1">
 			<div class="col-sm-12">

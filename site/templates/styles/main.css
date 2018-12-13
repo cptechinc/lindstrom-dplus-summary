@@ -33,9 +33,8 @@ footer {
 /**************************************
  	Login Styles
  **************************************/
-.form-signin {
+.div-centered {
 	width: 100%;
-	max-width: 500px;
 	padding: 15px;
 	margin: auto
 }
@@ -79,9 +78,7 @@ footer {
 	.fuelux .datepicker-calendar-days td.current-day button {
 		color: #fff;
 	}
-	
+
 	.fuelux .datepicker-calendar .datepicker-calendar-header .next .prev {
 		color: #fff;
 	}
-	
-	

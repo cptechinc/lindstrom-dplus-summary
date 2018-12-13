@@ -162,7 +162,7 @@
 		public function generate_salesgroup_bookings_URL($salesgroup, $date = '', $debug = false) {
 			$date = !empty($date) ? $date : $this->date;
 			$url = new Purl($this->pageurl->getUrl());
-			$url->path->add('salesreps');
+			$url->path = DplusWire::wire('pages')->get('template=bookings-salesreps')->url;
 			$url->query->set('salesgroup', $salesgroup);
 			$url->query->set('date', $date);
 			return $url->getUrl();
