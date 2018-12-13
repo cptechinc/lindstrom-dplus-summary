@@ -1,4 +1,5 @@
 <?php
+	use Dplus\ProcessWire\DplusWire;
 	use Dplus\Base\DplusDateTime;
 	use Purl\Url as Purl;
 
@@ -126,12 +127,45 @@
 			$date = !empty($date) ? $date : $this->date;
 			return get_bookingtotal_year($date, $debug);
 		}
+
+		/**
+		 * Return the URL for today's date
+		 * @return string URL
+		 */
+		public function generate_total_bookings_URL($date = '', $debug = false) {
+			$date = !empty($date) ? $date : $this->date;
+			$url = new Purl($this->pageurl->getUrl());
+			$url->path = DplusWire::wire('pages')->get('template=bookings-salesgroups')->url;
+			$url->query->set('date', $date);
+			$url->query->remove('salesgroup');
+			return $url->getUrl();
+		}
 	}
 
 	class BookingsSalesGroupsDisplay extends BookingsDisplay {
-
+		/**
+		 * Returns an array of SalesGroup IDs
+		 * @param  bool   $debug Run in debug? If so, return SQL Query
+		 * @return array         Sales GroupIDs
+		 */
 		public function get_salesgroups($debug = false) {
 			return get_bookingsalesgroups($debug);
+		}
+
+		/**
+		 * Returns salesgroup url, holding date from form if input is not empty
+		 * @param  string  $salesgroup Salesgroup ID
+		 * @param  string  $date       Date // NOTE Will use $this->date if blank
+		 * @param  boolean $debug      Run in debug? If so, return SQL Query
+		 * @return string              URL
+		 */
+		public function generate_salesgroup_bookings_URL($salesgroup, $date = '', $debug = false) {
+			$date = !empty($date) ? $date : $this->date;
+			$url = new Purl($this->pageurl->getUrl());
+			$url->path->add('salesreps');
+			$url->query->set('salesgroup', $salesgroup);
+			$url->query->set('date', $date);
+			return $url->getUrl();
 		}
 
 		/**
@@ -184,26 +218,27 @@
 	}
 
 	class BookingsSalesRepsDisplay extends BookingsSalesGroupsDisplay {
-
+		/**
+		 * Sales Group ID
+		 * @var string
+		 */
 		protected $salesgroup;
 
+		/**
+		 * Defines the salesgroup property
+		 * @param string $salesgroup Sales Group ID
+		 */
 		public function set_salesgroup($salesgroup) {
 			$this->salesgroup = $salesgroup;
 		}
 
+		/**
+		 * Returns an array of SalesRep IDs
+		 * @param  bool   $debug Run in debug? If so, return SQL Query
+		 * @return array         Sales Rep IDs
+		 */
 		public function get_salesreps($debug = false) {
 			return get_bookingsalesreps($this->salesgroup, $debug);
-		}
-
-		/**
-		 * Return the URL for today's date
-		 * @return string URL
-		 */
-		public function get_grouptodayURL() {
-			$dateurl = new Purl($this->pageurl->getUrl());
-			$dateurl->query->set('salesgroup', $this->salesgroup);
-			$dateurl->query->set('date', date('m/d/Y'));
-			return $dateurl->getUrl();
 		}
 
 		/**

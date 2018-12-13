@@ -21,10 +21,10 @@
         <?php endforeach; ?>
         <tr class="bg-dark text-white">
             <th scope="row">Total</th>
-            <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_group_total_day($salesgroup)); ?></td>
-            <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_group_total_week($salesgroup)); ?></td>
-            <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_group_total_month($salesgroup)); ?></td>
-            <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_group_total_year($salesgroup)); ?></td>
+            <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_group_total_day($bookingsdisplay->salesgroup)); ?></td>
+            <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_group_total_week($bookingsdisplay->salesgroup)); ?></td>
+            <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_group_total_month($bookingsdisplay->salesgroup)); ?></td>
+            <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_group_total_year($bookingsdisplay->salesgroup)); ?></td>
         </tr>
     </tbody>
 </table>

@@ -13,7 +13,7 @@
         <?php foreach ($salesgroups as $salesgroup) : ?>
             <tr>
                 <th scope="row">
-                    <a href='<?= $page->url."salesreps/?salesgroup=$salesgroup"; ?>'>
+                    <a href='<?= $bookingsdisplay->generate_salesgroup_bookings_URL($salesgroup, $date); ?>'>
                         <?= $config->booking_groups[$salesgroup]; ?>
                     </a>
                 </th>

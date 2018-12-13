@@ -10,7 +10,7 @@
             <div class="carousel-item rounded-top <?= $i == 1 ? 'active' : ''; ?>" style="background: <?= $bgcolors[$i]; ?>; height: 140px;">
                 <div class="carousel-caption d-none d-md-block">
                     <h2 class="font-weight-bold"><?= date('F', strtotime($yyyymmdd)); ?></h2>
-                    <p class="h5"><?= "$ ".$page->stringerbell->format_money($bookingsdisplay->get_group_total_month($salesgroup, $yyyymmdd)); ?></p>
+                    <p class="h5"><?= "$ ".$page->stringerbell->format_money($bookingsdisplay->get_group_total_month($bookingsdisplay->salesgroup, $yyyymmdd)); ?></p>
                 </div>
             </div>
             <?php endfor; ?>
@@ -26,7 +26,7 @@
                 ?>
                 <div>
                     <span class="font-weight-bold"><?= date('M', strtotime($yyyymmdd)); ?>:&ensp;</span>
-                    <span class="small"><?= $page->stringerbell->format_money($bookingsdisplay->get_group_total_month($salesgroup, $yyyymmdd)); ?>&ensp;</span>
+                    <span class="small"><?= $page->stringerbell->format_money($bookingsdisplay->get_group_total_month($bookingsdisplay->salesgroup, $yyyymmdd)); ?>&ensp;</span>
                 </div>
             <?php endfor; ?>
         </div>

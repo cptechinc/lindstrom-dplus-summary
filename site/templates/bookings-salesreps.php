@@ -1,35 +1,36 @@
 <?php
-	include('./_BookingsDisplay.class.php');
 	use Dplus\Base\DplusDateTime;
+	include('./_BookingsDisplay.class.php');
 
 	$date = $input->get->date ? date('Ymd', strtotime($input->get->text('date'))) : date('Ymd');
-    $salesgroup = $input->get->text('salesgroup');
-
 	$bookingsdisplay = new BookingsSalesRepsDisplay(session_id(), $page->fullURL, $date);
-    $bookingsdisplay->set_salesgroup($salesgroup);
+    $bookingsdisplay->set_salesgroup($input->get->text('salesgroup'));
+
 	$bgcolors = array_rand(array_flip($config->allowedcolors), $bookingsdisplay->get_monthfromdate());
+	$page->title = "Bookings for " . $config->booking_groups[$bookingsdisplay->salesgroup] . " ". DplusDateTime::format_date($date);
 ?>
 <?php include('./_head-blank.php'); // include header markup ?>
 	<div class="container page">
 		<div class="row mt-2 mb-1">
 			<div class="col-sm-12">
-				<h1 class="font-weight-bold text-white bg-info rounded p-3">Bookings for <?= $config->booking_groups[$salesgroup]; ?> <?= DplusDateTime::format_date($date); ?></h1>
+				<h1 class="font-weight-bold text-white bg-info rounded p-3"><?= $page->title; ?></h1>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-5">
+			<div class="col-sm-6">
 				<?php include "{$config->paths->content}bookings/date-form.php"; ?>
 			</div>
-            <div class="col-sm-7">
-                <a href="<?= $page->parent->url; ?>" class='btn btn-primary float-right'>
-                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Bookings
+            <div class="col-sm-6">
+                <a href="<?= $bookingsdisplay->generate_total_bookings_URL($date); ?>" class='btn btn-primary float-right'>
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Bookings by Group
                 </a>
             </div>
 		</div>
-
-		<?php include "{$config->paths->content}bookings/bookings-salesreps-table.php";  ?>
-		<?php include "{$config->paths->content}bookings/total-salesgroups-bookings-carousel.php";  ?>
-
+		<?php
+			include "{$config->paths->content}bookings/bookings-salesreps-table.php";
+			// file included below shows totals for the individual salesgroup
+			include "{$config->paths->content}bookings/total-salesgroups-bookings-carousel.php";
+		?>
 		<div class="mt-4">
 			<ul class="nav nav-tabs" id="myTab" role="tablist">
 				<li class="nav-item">
