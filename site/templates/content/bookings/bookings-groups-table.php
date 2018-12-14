@@ -20,7 +20,7 @@
                 <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_group_total_day($salesgroup)); ?></td>
                 <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_group_total_week($salesgroup)); ?></td>
                 <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_group_total_month($salesgroup)); ?></td>
-                <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_group_total_month($salesgroup)); ?></td>
+                <td class="text-right"><?= $page->stringerbell->format_money($bookingsdisplay->get_group_total_year($salesgroup)); ?></td>
             </tr>
         <?php endforeach; ?>
         <tr class="bg-dark text-white">

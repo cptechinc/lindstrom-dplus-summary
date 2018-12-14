@@ -26,9 +26,9 @@
 	<div id="sales-rep-today-pie" class="form-group"></div>
 	<script>
 		$(function() {
-			if ($('#sales-rep-today-bar').hasParent('.tab-pane')) {
-				var tab = $('#sales-rep-today-bar').closest('.tab-pane');
-
+			var tab = $('#sales-rep-today-bar').closest('.tab-pane');
+			
+			if (tab.length) {
 				if (tab.hasClass('active')) {
 					draw_daybargraph();
 					draw_daypiegraph();

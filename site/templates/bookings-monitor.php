@@ -9,11 +9,11 @@
 ?>
 
 <?php include('./_head-blank-refresh.php'); // include header markup ?>
-	<div class="container page d-flex">
-		<div class="align-self-center">
+	<div class="container page">
+		<div class="">
 			<div class="row mt-2 mb-1">
 				<div class="col-sm-12">
-					<h1 class="font-weight-bold text-white bg-info rounded p-3"><?= $page->title; ?></h1>
+					<h1 class="font-weight-bold rounded"><?= $page->title; ?></h1>
 				</div>
 			</div>
 			<div class="row">
@@ -21,9 +21,13 @@
 					<?php include "{$config->paths->content}bookings/date-form.php"; ?>
 				</div>
 			</div>
+			<div class="monitor">
+				<?php include "{$config->paths->content}bookings/bookings-groups-table.php"; ?>
+			</div>
+			
 			<?php
-				include "{$config->paths->content}bookings/bookings-groups-table.php";
 				include "{$config->paths->content}bookings/total-bookings-carousel.php";
+				include "{$config->paths->content}bookings/charts/line/year-trend-groups.php";
 			?>
 		</div>
 

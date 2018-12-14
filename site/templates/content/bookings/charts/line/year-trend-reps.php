@@ -38,9 +38,9 @@
 
 	<script>
 		$(function() {
-			if ($('#year-trend').hasParent('.tab-pane')) {
-				var tab = $('#year-trend').closest('.tab-pane');
-
+			var tab = $('#year-trend').closest('.tab-pane');
+			
+			if (tab.length > 0) {
 				if (tab.hasClass('active')) {
 					draw_yeargraph();
 				}
