@@ -24,12 +24,10 @@
 			<div class="monitor">
 				<?php include "{$config->paths->content}bookings/bookings-groups-table.php"; ?>
 			</div>
-			
 			<?php
 				include "{$config->paths->content}bookings/total-bookings-carousel.php";
 				include "{$config->paths->content}bookings/charts/line/year-trend-groups.php";
 			?>
 		</div>
-
 	</div>
 <?php include('./_foot.php'); // include footer markup ?>
