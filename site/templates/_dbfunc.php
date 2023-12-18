@@ -67,11 +67,13 @@
 			$yearmonth = date('Ym', strtotime($date));
 		}
 
+		$todate = date('Ymd', strtotime($date));
+
 		$q = (new QueryBuilder())->table('bookingr');
 		$q->field($q->expr('SUM(amount)'));
 		$q->where('salesgroup', $salesgroup);
 		$q->where('salesrep', $salesrep);
-		$q->where($q->expr("bookdate BETWEEN [] and []", [intval("{$yearmonth}01"), intval("{$yearmonth}31")]));
+		$q->where($q->expr("bookdate BETWEEN [] and []", [intval("{$yearmonth}01"), intval($todate)]));
 		$sql = DplusWire::wire('dplusdatabase')->prepare($q->render());
 
 		if ($debug) {
@@ -164,10 +166,12 @@
 			$yearmonth = date('Ym', strtotime($date));
 		}
 
+		$todate = date('Ymd', strtotime($date));
+
 		$q = (new QueryBuilder())->table('bookingr');
 		$q->field($q->expr('SUM(amount)'));
 		$q->where('salesgroup', $salesgroup);
-		$q->where($q->expr("bookdate BETWEEN [] and []", [intval("{$yearmonth}01"), intval("{$yearmonth}31")]));
+		$q->where($q->expr("bookdate BETWEEN [] and []", [intval("{$yearmonth}01"), intval($todate)]));
 		$sql = DplusWire::wire('dplusdatabase')->prepare($q->render());
 
 		if ($debug) {

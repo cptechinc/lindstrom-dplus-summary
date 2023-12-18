@@ -4,7 +4,7 @@
             <th scope="col">Salesreps</th>
             <th scope="col" class="text-right">Day</th>
             <th scope="col" class="text-right">Week</th>
-            <th scope="col" class="text-right">Month</th>
+            <th scope="col" class="text-right">Month-To-Date</th>
             <th scope="col" class="text-right">Year-To-Date</th>
         </tr>
     </thead>
